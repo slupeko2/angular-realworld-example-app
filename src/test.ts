@@ -1,5 +1,7 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
+// Updated zone.js to version 0.11.4
+import 'zone.js/dist/zone'; // Added this line to import the updated zone.js
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
 import 'zone.js/dist/sync-test';

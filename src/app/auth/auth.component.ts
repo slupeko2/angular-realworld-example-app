@@ -31,7 +31,8 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(data => {
       // Get the last piece of the URL (it's either 'login' or 'register')
-      this.authType = data[data.length - 1].path;
+      // Added null check for router fragments
+      this.authType = data && data[data.length - 1] ? data[data.length - 1].path : '';
       // Set a title for the page accordingly
       this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
       // add form control for username if this is the register page

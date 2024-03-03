@@ -24,16 +24,15 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "aot": true
           },
           "configurations": {
             "production": {
-              "optimization": true,
+              "optimization": {
+                "styles": {
+                  "inlineCritical": true // Added inlineCritical option and set it to true as per the task
+                }
+              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -52,24 +51,19 @@
                   "maximumWarning": "6kb"
                 }
               ]
-            },
-            "development": {}
-          },
-          "defaultConfiguration": "production"
+            }
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "browserTarget": "ang2-conduit:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ang2-conduit:build:production"
-            },
-            "development": {
-              "browserTarget": "ang2-conduit:build:development"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -118,8 +112,7 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "ang2-conduit:serve"
-          },
-          "configurations": {}
+          }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
