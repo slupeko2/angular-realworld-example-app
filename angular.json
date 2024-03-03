@@ -52,20 +52,24 @@
                   "maximumWarning": "6kb"
                 }
               ]
-            }
+            },
+            "development": {}
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang2-conduit:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ang2-conduit:build:production"
+            },
+            "development": {
+              "browserTarget": "ang2-conduit:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -114,7 +118,8 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "ang2-conduit:serve"
-          }
+          },
+          "configurations": {}
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
